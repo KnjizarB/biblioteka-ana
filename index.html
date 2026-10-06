@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="color-scheme" content="light dark">
+  <title>Biblioteka Ane i Jusufa Kalamperović</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="loginScreen" class="loginScreen">
+    <div class="loginCard">
+      <p class="eyebrow">LIČNA BIBLIOTEKA</p>
+      <h1>Biblioteka Ane i Jusufa Kalamperović</h1>
+      <p class="loginIntro">Unesite porodičnu šifru za pristup biblioteci.</p>
+      <form id="loginForm" class="loginForm">
+        <label class="srOnly" for="password">Šifra</label>
+        <input id="password" type="password" placeholder="Šifra" autocomplete="current-password" autofocus>
+        <button type="submit">Otvori biblioteku</button>
+      </form>
+      <p id="passwordError" class="passwordError" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <div id="libraryApp" hidden>
+    <header class="hero">
+      <div class="wrap">
+        <div class="topLine">
+          <p class="eyebrow">LIČNA BIBLIOTEKA</p>
+          <button id="logout" class="linkButton" type="button">Zaključaj</button>
+        </div>
+        <h1>Biblioteka Ane i Jusufa Kalamperović</h1>
+        <p class="intro">Pretraži zbirku po naslovu, autoru, izdavaču, mjestu, godini, jeziku, žanru, polici i drugim podacima.</p>
+
+        <div class="searchRow">
+          <label class="searchBox" for="search">
+            <span aria-hidden="true">⌕</span>
+            <input id="search" type="search" placeholder="Npr. Puškin 1972 Beograd" autocomplete="off">
+            <kbd>/</kbd>
+          </label>
+          <select id="sort" aria-label="Sortiranje">
+            <option value="title">Naslov A–Ž</option>
+            <option value="author">Autor A–Ž</option>
+            <option value="yearDesc">Godina ↓</option>
+            <option value="yearAsc">Godina ↑</option>
+          </select>
+        </div>
+
+        <div class="metaBar">
+          <span id="count">Učitavanje…</span>
+          <button id="clear" class="linkButton" type="button">Očisti pretragu</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section id="results" class="results" aria-live="polite"></section>
+      <div id="empty" class="empty" hidden>
+        <strong>Nema rezultata.</strong>
+        <span>Probaj manje riječi ili drugi oblik imena autora.</span>
+      </div>
+    </main>
+
+    <dialog id="detailsDialog">
+      <button id="closeDialog" class="dialogClose" type="button" aria-label="Zatvori">×</button>
+      <div id="dialogContent"></div>
+    </dialog>
+
+    <footer><div class="wrap">Biblioteka Ane i Jusufa Kalamperović</div></footer>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
